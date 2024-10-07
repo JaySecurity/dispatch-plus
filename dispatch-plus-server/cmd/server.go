@@ -1,9 +1,14 @@
 package main
 
 import (
-	"context"
+	"dispatch-plus-server/internal/config"
 	"dispatch-plus-server/pkg/account"
 	"dispatch-plus-server/pkg/base"
+	"dispatch-plus-server/store"
+	"fmt"
+	"strconv"
+
+	"context"
 	"log"
 	"net"
 
@@ -25,7 +30,13 @@ func (s *server) Logout(context.Context, *base.Empty) (*base.Empty, error) {
 }
 
 func main() {
-	lis, err := net.Listen("tcp", ":9001")
+	cfg := config.Init()
+	store := store.NewStore(cfg)
+	defer store.Db.Close()
+
+	host := fmt.Sprintf(":%s", strconv.FormatInt(int64(cfg.Port), 10))
+
+	lis, err := net.Listen("tcp", host)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
