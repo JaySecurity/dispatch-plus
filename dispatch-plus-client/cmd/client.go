@@ -2,14 +2,12 @@ package main
 
 import (
 	"context"
+	"dispatch-plus-client/internal/gui"
 	"dispatch-plus-client/pkg/account"
 	"fmt"
 	"log"
 	"time"
 
-	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -35,17 +33,10 @@ func main() {
 		log.Printf("Error: %v", err)
 	}
 	log.Printf("Login: %v", resp)
-	myApp := app.New()
-	myWindow := myApp.NewWindow("Hello")
-	myWindow.SetContent(widget.NewLabel("Hello"))
 
-	myWindow.Show()
+	app := gui.NewApp()
 
-	w2 := myApp.NewWindow("Second")
-	w2.SetContent(widget.NewLabel("Second Window Popup"))
-	w2.Resize(fyne.NewSize(300, 150))
-	w2.Show()
-	myApp.Run()
+	app.Window.ShowAndRun()
 }
 
 func tidyUp() {
