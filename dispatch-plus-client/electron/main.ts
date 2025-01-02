@@ -5,6 +5,7 @@ import path from "node:path";
 import { credentials } from "@grpc/grpc-js";
 import { AccountsClient, LoginRequest, LoginResponse } from "./pkg/account";
 
+// @ts-ignore
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 

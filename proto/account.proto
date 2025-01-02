@@ -2,28 +2,31 @@ syntax = "proto3";
 
 package account;
 
-option go_package="dispatch-plus-server/pkg/account";
-
 import "base.proto";
 
+option go_package = "dispatch-plus-server/pkg/account";
+
 service Accounts {
-  rpc Login(LoginRequest) returns (LoginResponse){}
-  rpc Logout(base.Empty) returns(base.Empty){}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc Logout(base.Empty) returns (base.Empty) {}
 }
 
-message User{
+message User {
   string Id = 1;
   string Username = 2;
   string Password = 3;
+  string FirstName = 4;
+  string LastName = 5;
+  string Phone = 6;
+  string Email = 7;
+  repeated string Skills = 8;
 }
 
 message LoginRequest {
   string Username = 1;
-  string Password = 2;
+  string Password =2;
 }
 
 message LoginResponse {
   User UserData = 1;
 }
-
-

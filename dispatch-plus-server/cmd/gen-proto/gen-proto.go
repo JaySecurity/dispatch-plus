@@ -94,7 +94,7 @@ func runCommand(command string) error {
 	done := make(chan bool)
 	go func() {
 		for scanner.Scan() {
-			fmt.Printf(scanner.Text() + "\n")
+			fmt.Printf("%s \n", scanner.Text())
 		}
 		done <- true
 	}()
