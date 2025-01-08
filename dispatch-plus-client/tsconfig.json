@@ -2,10 +2,13 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -14,20 +17,60 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./src/*"],
-      "components/*": ["./src/components/*"],
-      "interfaces/": ["./src/data/interfaces/", "./src/data/interfaces/*"],
-      "objects/*": ["./src/data/objects/*"],
-      "utilities/*": ["./src/utilities/*"],
-      "pkg/*": ["./electron/pkg/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "interfaces/": [
+        "./src/data/interfaces/",
+        "./src/data/interfaces/*"
+      ],
+      "objects/*": [
+        "./src/data/objects/*"
+      ],
+      "utilities/*": [
+        "./src/utilities/*"
+      ],
+      "pkg/*": [
+        "./electron/pkg/*"
+      ]
     },
-
+    /* Plugins */
+    //"plugins": [
+    //  {
+    //    "name": "@styled/typescript-styled-plugin",
+    //    "location": "./node_modules",
+    //    "tags": [
+    //      "styled",
+    //      "createGlobalStyle"
+    //    ],
+    //    "enableForWorkspaceTypeScriptVersions": true
+    //  }
+    //],
+    //"plugins": [
+    //  {
+    //    "name": "@styled/typescript-styled-plugin",
+    //    "tags": [
+    //      "createGlobalStyle",
+    //      "styled"
+    //    ]
+    //  }
+    //],
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "electron"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src",
+    "electron"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

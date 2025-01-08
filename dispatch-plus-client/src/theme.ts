@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, styled } from "styled-components";
 
 export const darkTheme = {
   colors: {
@@ -13,12 +13,26 @@ export const darkTheme = {
 
 export const lightTheme = {};
 
+const test = styled.div`
+background: "blue";
+height: "150px";
+width: ${({ theme }) => theme.width.small};
+`
+
 export const GlobalStyles = createGlobalStyle`
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+#root{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -41,14 +55,6 @@ body {
   }
 }
 
-
-#root{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-behavior: smooth;
-}
 
 a{
   text-decoration:none;   

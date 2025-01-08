@@ -1,0 +1,5 @@
+{
+	"devDependencies": {
+		"@styled/typescript-styled-plugin": "^1.0.1"
+	}
+}
